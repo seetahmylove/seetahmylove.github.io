@@ -1,0 +1,1570 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تقرير تحليلي: مصادر وتكاليف تنفيذ فعالية أطفال (الرياض)</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #00f2fe;
+            --secondary: #ff00ff;
+            --accent: #ffcc00;
+            --dark-bg: #0a0a0a;
+            --card-bg: rgba(20, 20, 30, 0.7);
+            --text: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --success: #00ff88;
+            --warning: #ffaa00;
+            --danger: #ff3366;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+        }
+
+        .animated-bg::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            right: -50%;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%),
+                        radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+            opacity: 0.1;
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Header */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+            max-width: 900px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 30px rgba(0, 242, 254, 0.3);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            right: 50%;
+            transform: translateX(50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(50%) translateY(0); }
+            40% { transform: translateX(50%) translateY(-20px); }
+            60% { transform: translateX(50%) translateY(-10px); }
+        }
+
+        /* Navigation */
+        .nav-container {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            background: var(--glass);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+        }
+
+        /* Glass Cards */
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 242, 254, 0.1);
+            border-color: var(--primary);
+        }
+
+        /* Executive Summary */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--glass), rgba(0, 242, 254, 0.1));
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            opacity: 0.1;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Main Dashboard Table */
+        .dashboard-table {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 2rem 0;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .table-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 1.5rem;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .table-row {
+            display: grid;
+            grid-template-columns: 60px 2fr 2fr 1.5fr 1.5fr 2fr;
+            gap: 1rem;
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--glass-border);
+            align-items: start;
+            transition: all 0.3s;
+        }
+
+        .table-row:hover {
+            background: rgba(0, 242, 254, 0.05);
+        }
+
+        .table-row:nth-child(even) {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .row-number {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .vendor-contact {
+            background: rgba(0, 242, 254, 0.1);
+            padding: 0.7rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .cost-range {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        /* Section Toggles */
+        .section-toggle {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .section-toggle:hover {
+            border-color: var(--primary);
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(255, 0, 255, 0.1));
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+            user-select: none;
+        }
+
+        .section-header:hover {
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.2), rgba(255, 0, 255, 0.2));
+        }
+
+        .section-header h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .toggle-icon {
+            font-size: 1.5rem;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            color: var(--primary);
+        }
+
+        .section-toggle.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .section-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0 1.5rem;
+        }
+
+        .section-toggle.active .section-content {
+            max-height: 3000px;
+            padding: 1.5rem;
+        }
+
+        /* Vendor Cards */
+        .vendor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .vendor-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 1.5rem;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .vendor-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 35px rgba(0, 242, 254, 0.15);
+        }
+
+        .vendor-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 0.7rem;
+        }
+
+        .vendor-contact-info {
+            background: rgba(255, 204, 0, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border: 1px solid rgba(255, 204, 0, 0.2);
+        }
+
+        .contact-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            margin: 0.3rem;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4);
+        }
+
+        /* Status Badges */
+        .status-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin: 0.2rem;
+            border: 1px solid;
+        }
+
+        .status-recommended {
+            background: rgba(0, 255, 136, 0.2);
+            color: var(--success);
+            border-color: var(--success);
+        }
+
+        .status-warning {
+            background: rgba(255, 170, 0, 0.2);
+            color: var(--warning);
+            border-color: var(--warning);
+        }
+
+        .status-danger {
+            background: rgba(255, 51, 102, 0.2);
+            color: var(--danger);
+            border-color: var(--danger);
+        }
+
+        .status-info {
+            background: rgba(0, 242, 254, 0.2);
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            right: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            margin: 5% auto;
+            padding: 2rem;
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            animation: modalSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes modalSlideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .close-modal {
+            color: var(--text-secondary);
+            float: left;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s;
+            font-weight: 300;
+        }
+
+        .close-modal:hover {
+            color: var(--primary);
+        }
+
+        /* Print Button */
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            box-shadow: 0 5px 20px rgba(0, 242, 254, 0.3);
+            transition: all 0.3s;
+            z-index: 999;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .print-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(0, 242, 254, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .table-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+            
+            .row-number {
+                margin: 0 auto 1rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .glass-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Preserve text formatting */
+        .preserve-text {
+            white-space: pre-wrap;
+            line-height: 1.8;
+        }
+
+        .text-highlight {
+            background: rgba(0, 242, 254, 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .cost-box {
+            background: linear-gradient(135deg, var(--accent), rgba(255, 204, 0, 0.3));
+            color: var(--dark-bg);
+            padding: 1rem;
+            border-radius: 10px;
+            font-weight: 700;
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .warning-box {
+            background: rgba(255, 170, 0, 0.1);
+            border: 1px solid var(--warning);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .success-box {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .danger-box {
+            background: rgba(255, 51, 102, 0.1);
+            border: 1px solid var(--danger);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <div class="animated-bg"></div>
+
+    <!-- Hero Section with EXACT original text -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>تقرير تحليلي: مصادر وتكاليف تنفيذ فعالية أطفال (الرياض)</h1>
+            <p>دليل مصادر شامل ومفصل لتنفيذ فعالية ضخمة في مدينة الرياض</p>
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down fa-2x"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="nav-container">
+        <nav class="nav">
+            <div class="logo">
+                <i class="fas fa-chart-line fa-lg"></i>
+                <span style="margin-left: 0.5rem;">لوحة التحكم</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#summary">ملخص تنفيذي</a></li>
+                <li><a href="#dashboard">لوحة التحكم</a></li>
+                <li><a href="#section1">القسم 1</a></li>
+                <li><a href="#section2">القسم 2</a></li>
+                <li><a href="#section3">القسم 3</a></li>
+                <li><a href="#section4">القسم 4</a></li>
+                <li><a href="#section5">القسم 5</a></li>
+                <li><a href="#section6">القسم 6</a></li>
+                <li><a href="#section7">القسم 7</a></li>
+                <li><a href="#conclusion">الخاتمة</a></li>
+            </ul>
+        </nav>
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Executive Summary - EXACT TEXT -->
+        <section id="summary">
+            <div class="glass-card">
+                <h2 style="color: var(--primary); font-size: 2rem; margin-bottom: 1.5rem;">
+                    <i class="fas fa-clipboard-list"></i> مقدمة: ملخص تنفيذي للموردين والتكاليف
+                </h2>
+                
+                <p style="font-size: 1.1rem; margin-bottom: 1.5rem; line-height: 1.8;">
+                    الغرض من هذا التقرير هو تزويد شركة حفلات الأطفال (العميل) بدليل مصادر (Sourcing Guide) شامل ومفصل، لتنفيذ قائمة الطلبات المكونة من ثمانية بنود رئيسية لفعالية أطفال في مدينة الرياض.
+                </p>
+                
+                <p style="font-size: 1.1rem; margin-bottom: 1.5rem; line-height: 1.8;">
+                    يكشف تحليل قائمة المتطلبات عن فعالية ضخمة ومتشابكة لوجستياً. إن محاولة تأمين مورد منفصل لكل عنصر (مثل مورد للسلايم، وآخر للمهرج، وثالث لمحاكيات السيارات) يُعد استراتيجية غير فعالة من حيث التكلفة والجهد الإداري.
+                </p>
+                
+                <p style="font-size: 1.1rem; margin-bottom: 2rem; line-height: 1.8;">
+                    لذلك، يركز هذا التحليل على استراتيجية "التجميع" (Bundling)، عبر تحديد موردين "مُجمعين" يقدمون خدمات متكاملة كباقة واحدة (مثل الفرق الترفيهية التي توفر المهرج والشخصيات والألعاب معاً). هذا النهج يقلل بشكل كبير من عدد العقود، ونقاط الاتصال، والتكاليف اللوجستية العامة.
+                </p>
+                
+                <p style="font-size: 1.1rem; margin-bottom: 2rem; line-height: 1.8;">
+                    بالإضافة إلى ذلك، تم تحديد سوء فهم شائع في قائمة المتطلبات، وتحديداً في البند (8) المتعلق بـ "المشرفين". إن طلب 11 "مشرفاً" (Supervisors) يتجاهل حقيقة أن معظم الأنشطة (مثل كشك التصوير، وأركان الحرف، والواقع الافتراضي) تأتي بشكل قياسي مع "مشغلين" (Operators) أو "منشطين" (Facilitators) مدمجين ضمن تكلفة الإيجار. الاستراتيجية الموصى بها هي توظيف عدد محدود (3-4) من "مديري الأرضية" (Floor Managers) للإشراف العام، والاعتماد على المنشطين المدمجين لإدارة الأنشطة الفردية، مما يوفر تكلفة ما لا يقل عن 7 موظفين.
+                </p>
+
+                <div class="success-box">
+                    <h3 style="color: var(--success); margin-bottom: 1rem;">
+                        <i class="fas fa-lightbulb"></i> استراتيجية التجميع
+                    </h3>
+                    <p>تم تحديد سوء فهم شائع في البند (8) المتعلق بالمشرفين. الاستراتيجية الموصى بها هي توظيف 3-4 مشرفين فقط (بدلاً من 11) والاعتماد على المنشطين المدمجين ضمن تكاليف الأنشطة.</p>
+                </div>
+
+                <p style="font-size: 1.1rem; margin-top: 1.5rem; line-height: 1.8;">
+                    يقدم الجدول التالي نظرة عامة تنفيذية للموردين الرئيسيين الموصى بهم والتكاليف التقديرية لكل بند، ليعمل كـ "لوحة تحكم" (Dashboard) لتسهيل عملية الشراء والتنفيذ.
+                </p>
+            </div>
+        </section>
+
+        <!-- Main Dashboard Table - EXACT TEXT -->
+        <section id="dashboard">
+            <div class="dashboard-table">
+                <div class="table-header">
+                    <i class="fas fa-table"></i> جدول (1): لوحة التحكم الرئيسية للموردين والميزانية التقديرية
+                </div>
+                
+                <div class="table-row" style="background: rgba(0, 242, 254, 0.1); font-weight: 700;">
+                    <div>البند</div>
+                    <div>الخدمة المطلوبة</div>
+                    <div>المورد الموصى به (أو أفضل 2)</div>
+                    <div>معلومات الاتصال</div>
+                    <div>التكلفة التقديرية (ريال سعودي)</div>
+                    <div>ملاحظات لوجستية</div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="table-row">
+                    <div><div class="row-number">2</div></div>
+                    <div>
+                        <strong>ألعاب VR وبلاي ستيشن</strong>
+                        <div style="margin-top: 0.5rem;">
+                            <span class="status-badge status-recommended">موصى به</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="vendor-name">عالم المغامرة للترفيه (Adventurksa)</div>
+                    </div>
+                    <div>
+                        <div class="vendor-contact">+966559723161</div>
+                    </div>
+                    <div class="cost-range">1,100</div>
+                    <div>
+                        <small>يشمل (VR + PS5 + شاشة 60" + جلسات بين باغ).</small>
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="table-row">
+                    <div><div class="row-number">3</div></div>
+                    <div>
+                        <strong>محاكيات سيارات (إضافية)</strong>
+                        <div style="margin-top: 0.5rem;">
+                            <span class="status-badge status-info">استفسار</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="vendor-name">PlanetX (للاستفسار عن تأجير خارجي)</div>
+                    </div>
+                    <div>
+                        <div class="vendor-contact">+966501148585</div>
+                    </div>
+                    <div class="cost-range">1,500 - 2,500 (لكل محاكي)</div>
+                    <div>
+                        <small>. يجب تأكيد إمكانية التأجير الخارجي.</small>
+                    </div>
+                </div>
+
+                <!-- Row 4 -->
+                <div class="table-row">
+                    <div><div class="row-number">4</div></div>
+                    <div>
+                        <strong>بوفيه خفيف (80 طفل)</strong>
+                        <div style="margin-top: 0.5rem;">
+                            <span class="status-badge status-recommended">هجين</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="vendor-name">Wej Bakery (تموين) + إعاره (سخانات)</div>
+                    </div>
+                    <div>
+                        <div class="vendor-contact">+966545476306</div>
+                    </div>
+                    <div class="cost-range">4,800 - 5,500</div>
+                    <div>
+                        <small>. التكلفة تشمل استئجار 4 سخانات (~200 ريال).</small>
+                    </div>
+                </div>
+
+                <!-- Row 5 -->
+                <div class="table-row">
+                    <div><div class="row-number">5</div></div>
+                    <div>
+                        <strong>أركان تعليمية (حرف)</strong>
+                        <div style="margin-top: 0.5rem;">
+                            <span class="status-badge status-recommended">متخصص</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="vendor-name">KidzStations (باقة فنون وسلايم)</div>
+                    </div>
+                    <div>
+                        <div class="vendor-contact">0535-866-234</div>
+                    </div>
+                    <div class="cost-range">1,500 - 2,500</div>
+                    <div>
+                        <small>الباقة تشمل (سلايم، رمل، عجين) + منشط مدمج.</small>
+                    </div>
+                </div>
+
+                <!-- Row 6 -->
+                <div class="table-row">
+                    <div><div class="row-number">6</div></div>
+                    <div>
+                        <strong>(قصص + تشكيل بالونات)</strong>
+                        <div style="margin-top: 0.5rem;">
+                            <span class="status-badge status-info">مدمج</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="vendor-name">Glow Events (ضمن باقة الترفيه)</div>
+                    </div>
+                    <div>
+                        <div class="vendor-contact">واتساب (عبر إعلان حراج)</div>
+                    </div>
+                    <div class="cost-range">(مدمجة مع البند 6)</div>
+                    <div>
+                        <small>يجب دمجها مع عقد الترفيه لتقليل التكلفة.</small>
+                    </div>
+                </div>
+
+                <!-- Row 7 -->
+                <div class="table-row">
+                    <div><div class="row-number">7</div></div>
+                    <div>
+                        <strong>كشك تصوير (5 ساعات)</strong>
+                        <div style="margin-top: 0.5rem;">
+                            <span class="status-badge status-warning">تحديات لوجستية</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="vendor-name">Pixel Media / Iboothme</div>
+                    </div>
+                    <div>
+                        <div class="vendor-contact">+966563385907</div>
+                    </div>
+                    <div class="cost-range">2,500 - 4,000</div>
+                    <div>
+                        <small>. يجب إدارة توقعات "الطباعة للجميع".</small>
+                    </div>
+                </div>
+
+                <!-- Row 8 -->
+                <div class="table-row">
+                    <div><div class="row-number">8</div></div>
+                    <div>
+                        <strong>فرقة ترفيهية شاملة</strong>
+                        <div style="margin-top: 0.5rem;">
+                            <span class="status-badge status-recommended">تجميعي</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="vendor-name">Glow Events (خيار شامل)</div>
+                    </div>
+                    <div>
+                        <div class="vendor-contact">واتساب (عبر إعلان حراج)</div>
+                    </div>
+                    <div class="cost-range">3,000 - 4,500</div>
+                    <div>
+                        <small>. العرض يشمل (مهرج، عمالقة، شخصيات، ألعاب).</small>
+                    </div>
+                </div>
+
+                <!-- Row 9 -->
+                <div class="table-row">
+                    <div><div class="row-number">9</div></div>
+                    <div>
+                        <strong>(بديل) فرقة ترفيهية</strong>
+                        <div style="margin-top: 0.5rem;">
+                            <span class="status-badge status-info">بديل</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="vendor-name">لمات - فرقة التميز (Lamaat)</div>
+                    </div>
+                    <div>
+                        <div class="vendor-contact">+966567363371</div>
+                    </div>
+                    <div class="cost-range">1,512 (لـ 4 ساعات)</div>
+                    <div>
+                        <small>. يشمل (مهرجة، مسابقات، شخصية). لا يشمل "مشاة العصي".</small>
+                    </div>
+                </div>
+
+                <!-- Row 10 -->
+                <div class="table-row">
+                    <div><div class="row-number">10</div></div>
+                    <div>
+                        <strong>ديكور بالونات (مع طباعة)</strong>
+                        <div style="margin-top: 0.5rem;">
+                            <span class="status-badge status-recommended">متعدد الخيارات</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="vendor-name">بالونيرز (Balloonerz) / Balloonco</div>
+                    </div>
+                    <div>
+                        <div class="vendor-contact">0562678888</div>
+                    </div>
+                    <div class="cost-range">1,500 - 3,000</div>
+                    <div>
+                        <small>. السعر يعتمد على حجم الطباعة والتنسيق.</small>
+                    </div>
+                </div>
+
+                <!-- Row 11 -->
+                <div class="table-row">
+                    <div><div class="row-number">11</div></div>
+                    <div>
+                        <strong>فريق إشراف (عام)</strong>
+                        <div style="margin-top: 0.5rem;">
+                            <span class="status-badge status-danger">إعادة تعريف</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="vendor-name">THA Staffing KSA</div>
+                        <small style="color: var(--text-secondary);">(عبر الموقع)</small>
+                    </div>
+                    <div>
+                        <div class="vendor-contact">(عبر الموقع)</div>
+                    </div>
+                    <div class="cost-range">1,800 - 2,400 (لـ 3 مشرفين)</div>
+                    <div>
+                        <small>. يتم توظيف 3 مشرفين فقط (البقية مدمجون).</small>
+                    </div>
+                </div>
+
+                <!-- Total Row -->
+                <div class="table-row" style="background: linear-gradient(135deg, var(--success), rgba(0, 242, 254, 0.3)); color: white; font-weight: 700;">
+                    <div></div>
+                    <div>المجموع التقديري</div>
+                    <div></div>
+                    <div></div>
+                    <div style="font-size: 1.5rem;">17,700 - 25,700</div>
+                    <div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 1: EXACT TEXT -->
+        <div class="section-toggle" id="section1">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>القسم 1: توريد معدات الألعاب والواقع الافتراضي (البند 2)</h2>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="section-content">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">تحليل المتطلبات</h3>
+                <p>يتطلب البند (2) إعداداً كاملاً لأربع فئات ألعاب متميزة: أ. ألعاب الواقع الافتراضي (VR). ب. ألعاب سيارات (يُفترض أنها محاكيات سباق). ج. لعبة تقطيع فواكه (مثل Fruit Ninja، والتي يمكن توفيرها عبر VR أو شاشة لمس). د. بلاي ستيشن (VR) عادي. (الطلب يذكر VR وبلاي ستيشن، مما قد يعني جهاز VR متصل بـ PS، وجهاز PS عادي إضافي).</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 1rem;">ملفات الموردين وتحليل التكلفة</h3>
+                <p>يُظهر البحث عن موردين في الرياض تبايناً كبيراً في الأسعار والخدمات المضمنة.</p>
+
+                <div class="vendor-grid">
+                    <div class="vendor-card">
+                        <div class="vendor-name">المورد 1: "عالم المغامرة للترفيه" (Adventurksa)</div>
+                        <div class="status-badge status-recommended">الخيار المفضل</div>
+                        <div style="margin: 1rem 0;">
+                            <p><strong>البيانات:</strong> يقدم "بكج البلايستيشن مع نظارة VR - ايجار يومي".</p>
+                            <p><strong>التكلفة:</strong> 1,100 ريال سعودي (شامل الضريبة).</p>
+                            <p><strong>تفاصيل الباقة:</strong> هذه الباقة شاملة بشكل استثنائي وتغطي غالبية متطلبات البند (2). تتضمن: (1) جهاز بلاي ستيشن مع نظارة VR، (2) شاشة ذكية 4K بحجم 60 بوصة، (3) جلسات بين باغ (Bean Bag) تتسع لـ 6 أشخاص، (4) ذراعي تحكم.</p>
+                            <p><strong>التحليل:</strong> بسعر 1,100 ريال، تغطي هذه الباقة البنود (أ)، (ج)، و (د) (بافتراض أن لعبة تقطيع الفواكه ضمن الألعاب المتاحة). كما يلغي هذا الخيار الحاجة إلى استئجار شاشات أو أثاث منفصل لهذا الركن، مما يوفر كفاءة لوجستية وتكلفة إضافية.</p>
+                        </div>
+                        <div class="vendor-contact-info">
+                            <i class="fas fa-phone"></i> +966559723161 | +966559668015<br>
+                            <i class="fas fa-envelope"></i> info@adventurksa.com
+                        </div>
+                    </div>
+
+                    <div class="vendor-card">
+                        <div class="vendor-name">المورد 2: "Great Joy" / "Estajer.com"</div>
+                        <div class="status-badge status-warning">تضارب سعري</div>
+                        <div style="margin: 1rem 0;">
+                            <p><strong>البيانات:</strong> يوجد تضارب سعري كبير لهذا المورد عبر منصات مختلفة. الموقع الرسمي "Great Joy" يعرض "لعبة الــ VR" بسعر 3,400 ريال (مع تأمين 300 ريال). منصة "استأجر" (Estajer.com) تعرض نفس المنتج بسعر 550 ريال لليوم.</p>
+                            <p><strong>التحليل:</strong> هذا التناقض الحاد (3,400 مقابل 550) يتطلب تحقيقاً. قد يكون السعر الأعلى (3,400 ريال) مخصصاً لباقة شركات كاملة تتضمن أجهزة متعددة أو محاكيات حركة، بينما السعر الأقل (550 ريال) هو للجهاز الأساسي (سماعة الرأس ووحدات التحكم) فقط. يجب الاتصال بـ "Great Joy" مباشرة لتوضيح السعر لبند "VR واحد".</p>
+                        </div>
+                    </div>
+
+                    <div class="vendor-card">
+                        <div class="vendor-name">المورد 3: "Joy Rent"</div>
+                        <div style="margin: 1rem 0;">
+                            <p><strong>البيانات:</strong> يقدم "نظارة VR واقع افتراضي" مع بلايستيشن 5 وأكثر من 25 لعبة محملة. الخدمة تشمل التوصيل المجاني داخل الرياض، والتعقيم، والالتزام بالمواعيد.</p>
+                            <p><strong>التحليل:</strong> لم يتم ذكر السعر، ولكنهم مورد مؤكد للخدمة.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 1rem;">تحديد مصادر "محاكيات السيارات" (البند 2ب)</h3>
+                <p>يُظهر التحليل فجوة (Gap) في السوق بخصوص "تأجير" محاكيات السباق المتنقلة.</p>
+                
+                <div class="vendor-grid">
+                    <div class="vendor-card">
+                        <div class="vendor-name">"يوسفندي" (Yousef NDI)</div>
+                        <p style="margin: 1rem 0;"><strong>البيانات:</strong> متجر يبيع معدات المحاكاة (مثل قواعد MOZA) ولكنه لا يذكر خدمات التأجير.</p>
+                    </div>
+                    
+                    <div class="vendor-card">
+                        <div class="vendor-name">"Firstaiment"</div>
+                        <p style="margin: 1rem 0;"><strong>البيانات:</strong> يقدم "فيرست تراك" لسباق السيارات، ولكنه مركز ترفيهي ثابت وليس خدمة تأجير متنقلة للفعاليات.</p>
+                    </div>
+                </div>
+
+                <div class="danger-box">
+                    <p><strong>التحليل:</strong> هذا هو العنصر الأكثر صعوبة في البند (2). الخيار الأفضل هو الاتصال بمراكز ترفيه VR متخصصة مثل "PlanetX" (الموقع: ذا زون مول، هاتف: +966501148585) أو "Sandbox VR" وسؤالهم مباشرة إذا كانوا يقدمون خدمة "تأجير خارجي" (Off-site rental) لمحاكياتهم لفعاليات الشركات.</p>
+                </div>
+
+                <div class="success-box">
+                    <h4 style="color: var(--success); margin-bottom: 0.5rem;">التوصية النهائية للقسم 1</h4>
+                    <p><strong>الإجراء الفوري:</strong> حجز "بكج البلايستيشن مع نظارة VR" من "عالم المغامرة" بسعر 1,100 ريال لتغطية البنود (أ، ج، د).</p>
+                    <p><strong>الإجراء الثانوي:</strong> الاتصال بـ "PlanetX" للاستفسار عن تأجير 1-2 محاكي سباق.</p>
+                    <p><strong>الميزانية التقديرية (الإجمالية):</strong> ~1,100 ريال (لباقة VR/PS) + 2,000 ريال (تقديري لمحاكي سيارات واحد) = 3,100 ريال.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: EXACT TEXT -->
+        <div class="section-toggle" id="section2">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>القسم 2: تنفيذ البوفيه الخفيف (البند 3 - لـ 80 طفلاً)</h2>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="section-content">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">تحليل المتطلبات</h3>
+                <p>الطلب ليس بوفيه عشاء كامل، بل "وجبات خفيفة ساخنة" لـ 80 طفلاً. القائمة محددة جداً: أ. سخان هوت دوغ (دجاج). ب. سخان هوت دوغ (نوع آخر، يُفترض لحم بقر). ج. سخان مكرونة (يُفضل بيني أو فوسيلي). د. سخان بيتزا صغيرة (ميني بيتزا). هـ. عصير (متنوع). و. ماء.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 1rem;">استراتيجية المصادر (Hybrid Sourcing Strategy)</h3>
+                <p>التعاقد مع شركة "كيترينج" (Catering) فاخرة لتقديم هذه القائمة البسيطة سيكون مكلفاً. وفي المقابل، فإن "عربات الطعام" (Food Trucks) المتوفرة في الرياض تركز عادةً على أصناف مختلفة مثل الآيس كريم، الفشار، والبانكيك، ولا تطابق القائمة المطلوبة.</p>
+                <p>لذلك، فإن الحل الأكثر فعالية هو "استراتيجية المصادر الهجينة":</p>
+                <ul style="margin: 1rem 0; padding-right: 2rem;">
+                    <li>تأجير المعدات: استئجار السخانات (Chafing Dishes) وأوعية العصير بشكل منفصل.</li>
+                    <li>توريد الطعام: التعاقد مع خدمة تموين "توصيل فقط" (Drop-off Catering) للطعام الساخن.</li>
+                </ul>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 1rem;">خطوات التنفيذ والموردون</h3>
+                
+                <h4 style="color: var(--accent); margin: 1rem 0 0.5rem;">الخطوة 1: تأجير معدات البوفيه (السخانات)</h4>
+                <div class="vendor-card">
+                    <div class="vendor-name">المورد: "إعاره" (E3arah.sa)</div>
+                    <p style="margin: 1rem 0;"><strong>البيانات:</strong> هذا المورد متخصص في تأجير مستلزمات الفعاليات. يعرض "سخانات اكل بوفيه" بأسعار تبدأ من 25 ريال إلى 50 ريال لليوم للسخان الواحد.</p>
+                    <p style="margin: 1rem 0;"><strong>الإجراء:</strong> استئجار 4 سخانات طعام + 1-2 أوعية عصير.</p>
+                    <p style="margin: 1rem 0;"><strong>التكلفة التقديرية للمعدات:</strong> ~300 ريال.</p>
+                </div>
+
+                <h4 style="color: var(--accent); margin: 1.5rem 0 0.5rem;">الخطوة 2: تحديد مصادر التموين (الطعام لـ 80 طفل)</h4>
+                
+                <div class="vendor-grid">
+                    <div class="vendor-card">
+                        <div class="vendor-name">المورد 1: "Wej Bakery"</div>
+                        <p style="margin: 1rem 0;"><strong>البيانات:</strong> يقدمون خدمة "بوفيه عشاء 70 أشخاص الى 80". هذا يؤكد قدرتهم على التعامل مع الحجم المطلوب.</p>
+                        <p style="margin: 1rem 0;"><strong>الإجراء:</strong> الاتصال (+966545476306) وطلب عرض سعر لـ "تموين توصيل فقط" للقائمة المحددة (هوت دوغ، مكرونة، ميني بيتزا) لـ 80 طفلاً.</p>
+                    </div>
+
+                    <div class="vendor-card">
+                        <div class="vendor-name">المورد 2: "Eventastic"</div>
+                        <p style="margin: 1rem 0;"><strong>البيانات:</strong> متخصصون في "تنظيم حفلات اطفال بالرياض" ولديهم خبرة واضحة في قوائم طعام الأطفال (ذكر موقعهم مقالات عن "أفضل وجبات صحية للاطفال").</p>
+                        <p style="margin: 1rem 0;"><strong>الإجراء:</strong> الاتصال (00966505400989) وطلب عرض سعر منافس لنفس القائمة.</p>
+                    </div>
+                </div>
+
+                <p style="margin: 1rem 0;"><strong>المورد 3:</strong> شركات الكيترينج الكبرى (للمقارنة) يمكن الاتصال بشركات مثل "Kit Catering" أو "Baguette Ring" للحصول على عرض سعر، مع العلم أنه قد يكون أعلى سعراً.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 1rem;">تحليل التكلفة</h3>
+                <p><strong>المعيار:</strong> كمرجع، يقدم فندق "هوليداي إن القصر" بوفيه إفطار (في رمضان) بسعر 80 ريال للطفل.</p>
+                <p><strong>التقدير:</strong> نظراً لأن الطلب هو خدمة "توصيل فقط" وقائمة أبسط، يمكن تقدير التكلفة بحوالي 50-60 ريال للطفل.</p>
+                <div class="cost-box">(80 طفل * 60 ريال) = 4,800 ريال للطعام</div>
+
+                <div class="success-box">
+                    <h4 style="color: var(--success); margin-bottom: 0.5rem;">التوصية النهائية للقسم 2</h4>
+                    <p><strong>الإجراء:</strong> الاتصال بـ "Wej Bakery" و "Eventastic" لطلب عروض أسعار للتموين. واستئجار السخانات من "إعاره".</p>
+                    <p><strong>الميزانية التقديرية الإجمالية:</strong> 4,800 ريال (طعام) + 300 ريال (معدات) = 5,100 ريال.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: EXACT TEXT -->
+        <div class="section-toggle" id="section3">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>القسم 3: تجهيز وإدارة الأركان التعليمية والتفاعلية (البند 4)</h2>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="section-content">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">تحليل المتطلبات</h3>
+                <p>يُعد هذا البند الأكثر تشعباً وتطلباً للتنسيق، ويشمل 8 أنشطة متميزة: أ. تلوين ماتي (قد يكون خطأ مطبعي والمقصود "تلوين" عام أو "تلوين بالرمل"). ب. مكعبات بناء (Blocks). ج. ألعاب الغاز (غامض، قد يعني تجارب علمية بسيطة أو فقاعات صابون). د. قصص (Storytelling). هـ. عجينة لعب (Dough/Play-Doh). و. رمل سحري (Magic Sand). ز. طاولة إضاءة + علاج بالفن (Specialized Art Therapy). ح. تشكيل بالونات (Balloon Twisting).</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 1rem;">استراتيجية المصادر (تفكيك الركن)</h3>
+                <p>لا يوجد مورد واحد يقدم "ركن" جاهز يحتوي على جميع هذه العناصر المتنافرة (التي تمزج بين الحرف اليدوية، والمعدات المتخصصة كطاولة الإضاءة، والعروض الأدائية مثل القصص).</p>
+                <p><strong>البيانات:</strong> "عالم المغامرة للترفيه" يقدم "ركن أطفال 55" بسعر 1800 ريال، و "ركن 77" بسعر 3200 ريال.</p>
+                <p><strong>التحليل:</strong> هذه الأركان (المذكورة كـ "من سنتين لـ 4 سنوات" أو "من 4 لـ 6 سنوات") هي على الأغلب مناطق لعب آمنة (Soft Play) ولا تتضمن "علاج بالفن" أو "رمل سحري".</p>
+                <p><strong>الحل:</strong> يجب "بناء" هذا القسم من 3 فئات موردين مختلفة.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 1rem;">خطوات التنفيذ والموردون</h3>
+
+                <h4 style="color: var(--accent); margin: 1rem 0 0.5rem;">1. الأنشطة الفوضوية (Messy Activities: Slime, Dough, Sand, Art)</h4>
+                <div class="vendor-card">
+                    <div class="vendor-name">المورد: "كيدز ستيشنس" (KidzStations)</div>
+                    <p style="margin: 1rem 0;"><strong>البيانات:</strong> هذا المورد متخصص في الأنشطة التفاعلية. يقدمون باقات محددة مثل "حفلة السلايم"، "حفلة صناعة الدبدوب"، و "الفنون" (Arts).</p>
+                    <p style="margin: 1rem 0;"><strong>الإجراء:</strong> الاتصال بـ "KidzStations" (0535-866-234) وطلب "باقة ركن الفنون والحرف" لمدة 5 ساعات، تشمل توفير المواد والمنشطين لـ (السلايم، العجين، الرمل السحري، ومواد التلوين/العلاج بالفن).</p>
+                    <p style="margin: 1rem 0;"><strong>ملاحظة لوجستية:</strong> هذه الباقة ستتضمن على الأرجح "منشط" (Facilitator)، وهو ما يغطي أحد "المشرفين" الـ 11 المطلوبين في البند (8).</p>
+                    <p style="margin: 1rem 0;"><strong>التكلفة التقديرية:</strong> 1,500 - 2,500 ريال.</p>
+                </div>
+
+                <h4 style="color: var(--accent); margin: 1.5rem 0 0.5rem;">2. الأنشطة الثابتة (Static Activities: Blocks, Lighting Table)</h4>
+                <p>المورد: "عالم المغامرة" (Adventurksa) أو "Party Station"</p>
+                <p><strong>البيانات:</strong> "Party Station" يبيع "الأركان التعليمية" للمدارس. "عالم المغامرة" يؤجر معدات الأركان.</p>
+                <p><strong>الإجراء:</strong> استئجار "مكعبات بناء" وطاولات وكراسي أطفال من "عالم المغامرة". "طاولة الإضاءة" (البند 4ز) هي معدة متخصصة، يجب سؤال "KidzStations" عنها كجزء من باقة "العلاج بالفن".</p>
+
+                <h4 style="color: var(--accent); margin: 1.5rem 0 0.5rem;">3. الأنشطة الأدائية (Performance Activities: Storytelling, Balloon Twisting)</h4>
+                <p><strong>التحليل:</strong> هذا هو خطأ لوجستي شائع. "تشكيل البالونات" و "قصص" ليستا "أركان" ثابتة، بل هي "عروض أدائية" (Performances).</p>
+                <p><strong>الإجراء (التجميعي):</strong> يجب عدم توظيف فنان بالونات منفصل أو راوي قصص منفصل. يجب دمج هذه الخدمات ضمن عقد "فرقة الترفيه" (البند 6). سيتم تحليل هذا في القسم 5.</p>
+
+                <h4 style="color: var(--accent); margin: 1.5rem 0 0.5rem;">4. "ألعاب الغاز" (البند 4ج)</h4>
+                <p><strong>التحليل:</strong> هذا الطلب غامض. قد يعني "عرض فقاعات الصابون" (Bubble Show) أو "عرض علمي" (Science Show) بسيط (مثل تجارب الثلج الجاف).</p>
+                <p><strong>الإجراء:</strong> يجب سؤال مورد الفرقة الترفيهية (القسم 5)، مثل "Glow Events"، إذا كانوا يقدمون "عرض علمي" أو "عرض فقاعات" كجزء من باقتهم.</p>
+
+                <div class="success-box">
+                    <h4 style="color: var(--success); margin-bottom: 0.5rem;">التوصية النهائية للقسم 3</h4>
+                    <p>تخصيص ميزانية ~2,000 ريال لـ "ركن الحرف والفوضى" (سلايم، رمل، فنون) من "KidzStations".</p>
+                    <p>تخصيص ميزانية ~1,000 ريال لـ "تأجير مكعبات وطاولات" من "عالم المغامرة".</p>
+                    <p>دمج "تشكيل البالونات" و "القصص" في عقد "فرقة الترفيه" (القسم 5) لتوفير التكاليف.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4: EXACT TEXT -->
+        <div class="section-toggle" id="section4">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>القسم 4: تأمين كشك التصوير (فوتو بوث) (البند 5)</h2>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="section-content">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">تحليل المتطلبات</h3>
+                <p>الطلبات في هذا البند صارمة ومحددة زمنياً ولوجستياً: أ. المدة: 5 ساعات متواصلة (من 12:00 ظهراً حتى 5:00 مساءً). ب. طباعة فورية "لكل شخص" (لـ 80 طفل + المرافقين). ج. طباعة شعار الشركة (العميل النهائي) على جميع الصور المطبوعة.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 1rem;">التحليل اللوجستي (تحدي "الطباعة للجميع")</h3>
+                <div class="warning-box">
+                    <p>يوجد تحدٍ لوجستي كبير في الشرط (ب).</p>
+                    <p><strong>الواقع التشغيلي:</strong> دورة كشك التصوير (دخول الضيوف، اختيار الملحقات، التقاط 3-4 صور، معالجة الطباعة) تستغرق ما لا يقل عن 1.5 إلى 2 دقيقة لكل مجموعة.</p>
+                    <p><strong>الحساب:</strong> 5 ساعات = 300 دقيقة.</p>
+                    <p><strong>الحد الأقصى للإنتاجية:</strong> 300 دقيقة / 1.5 دقيقة للدورة = 200 دورة طباعة كحد أقصى (في أفضل الظروف).</p>
+                    <p><strong>النتيجة:</strong> مع وجود 80 طفل (والذين سيكررون التجربة) بالإضافة إلى عائلاتهم، فإن عدد الحضور الفعلي سيتجاوز 200 شخص بسهولة. هذا سيخلق "عنق زجاجة" (Bottleneck) وطابوراً طويلاً، مما يجعل شرط "الطباعة للجميع" مستحيلاً فيزيائياً.</p>
+                    <p><strong>يجب على شركة الحفلات (العميل) إدارة توقعات عميلها النهائي. التوصية هي تغيير الاتفاق إلى "جلسات تصوير رقمية غير محدودة" (Unlimited Digital Sessions)، مع "عدد محدد من النسخ المطبوعة" (مثلاً: 300 طباعة)، وإرسال الصور الرقمية الفورية عبر البريد الإلكتروني أو Airdrop.</p>
+                </div>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 1rem;">ملفات الموردين في الرياض</h3>
+                
+                <div class="vendor-grid">
+                    <div class="vendor-card">
+                        <div class="vendor-name">المورد 1: "Iboothme"</div>
+                        <p style="margin: 1rem 0;"><strong>البيانات:</strong> مورد رئيسي ومحترف في الرياض. يقدم خدمات متنوعة تشمل "Classic Photo booth" و "Mirror Photo booth" و "360 Video Booth".</p>
+                        <p style="margin: 1rem 0;"><strong>الإجراء:</strong> الاتصال (info@iboothme.com | +966 531 685 546) وطلب عرض سعر لـ "تأجير Classic Photo booth لمدة 5 ساعات، مع مشغل، وطباعة الشعار، وباقة طباعة 300 نسخة".</p>
+                    </div>
+
+                    <div class="vendor-card">
+                        <div class="vendor-name">المورد 2: "Pixel Media"</div>
+                        <p style="margin: 1rem 0;"><strong>البيانات:</strong> شركة رائدة في تقنيات الفعاليات بالرياض، تقدم "premium photo booth rentals".</p>
+                        <p style="margin: 1rem 0;"><strong>الإجراء:</strong> الاتصال (+966 56 338 5907 | hello@pixelmediasa.com) لطلب نفس عرض السعر للمقارنة.</p>
+                    </div>
+
+                    <div class="vendor-card">
+                        <div class="vendor-name">المورد 3: مورد "حراج" (انعكاس اللحظات)</div>
+                        <p style="margin: 1rem 0;"><strong>البيانات:</strong> يوجد إعلان في "حراج" مطابق تماماً للطلبات: "جهاز الفوتو بوث العصري للتصوير الفوري"، "إمكانية إضافة شعار أو إطار"، "طباعة فورية"، و "فريق تشغيل متكامل طوال الحدث".</p>
+                        <p style="margin: 1rem 0;"><strong>الإجراء:</strong> التواصل عبر الإعلان للحصول على عرض سعر تنافسي.</p>
+                    </div>
+                </div>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 1rem;">التكلفة التقديرية</h3>
+                <p>عادةً ما يتم تسعير أكشاك التصوير الاحترافية بالساعة (500-700 ريال/ساعة).</p>
+                <div class="cost-box">باقة 5 ساعات مع مشغل، وطباعة مخصصة، وعدد كبير من المطبوعات، ستتراوح تكلفتها بين 2,500 و 4,000 ريال.</div>
+
+                <div class="success-box">
+                    <h4 style="color: var(--success); margin-bottom: 0.5rem;">التوصية النهائية للقسم 4</h4>
+                    <p>الاتصال بـ "Pixel Media" و "Iboothme" للحصول على عروض أسعار احترافية B2B، مع ضرورة مناقشة التحدي اللوجستي لـ "الطباعة للجميع" مع العميل النهائي.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5: EXACT TEXT -->
+        <div class="section-toggle" id="section5">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>القسم 5: تنظيم فقرات الترفيه الحية (البند 6)</h2>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="section-content">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">تحليل المتطلبات</h3>
+                <p>قائمة فقرات ترفيهية حية ومتنوعة: أ. شخصيات كرتونية (Mascots). ب. عرض ترفيهي (Show - فقرة مسرحية). ج. ألعاب ذهنية (Brain Games - قد تكون مسابقات تفاعلية). د. مشاة على العصي (Stilt Walker). هـ. مهرج (Clown).</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 1rem;">استراتيجية المصادر (التجميع هو المفتاح)</h3>
+                <p>هذا البند، بالاشتراك مع البند (4)، هو الأكثر عرضة لتضخم التكلفة إذا تم تنفيذه بشكل مجزأ. استئجار "Stilt Walker" (شخص يمشي على العصي) وحده قد يكلف 1000-1500 ريال لفقرة قصيرة. واستئجار مهرج وشخصيات كرتونية بشكل منفصل سيضيف تكاليف إدارية ولوجستية.</p>
+                <p>الحل الأمثل هو التعاقد مع "فرقة ترفيهية" (Entertainment Troupe) واحدة تقدم كل هذه الخدمات كباقة شاملة.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 1rem;">ملفات الموردين (المجمعين)</h3>
+                
+                <div class="vendor-grid">
+                    <div class="vendor-card">
+                        <div class="vendor-name">المورد 1: "Glow Events" (خيار شامل)</div>
+                        <div class="status-badge status-recommended">الحل الذهبي</div>
+                        <div style="margin: 1rem 0;">
+                            <p><strong>البيانات:</strong> هذا المورد (المعلن في حراج) يبدو أنه "الحل الذهبي" لهذه الفعالية. إعلانهم يغطي تقريباً كل المتطلبات:</p>
+                            <ul style="margin: 0.5rem 0; padding-right: 2rem;">
+                                <li>"المهرجين" (البند 6هـ)</li>
+                                <li>"العمالقة" (وهو المصطلح المحلي الدارج لـ Stilt Walkers - البند 6د)</li>
+                                <li>"الشخصيات الكرتونية" (البند 6أ)</li>
+                                <li>"فرقة استعراضية اطفال" (البند 6ب)</li>
+                                <li>"لاعب الخفة" (البند 6ج)</li>
+                            </ul>
+                            <p><strong>تغطية إضافية:</strong> الإعلان يذكر أيضاً "ركن الطفل الرسم والتلوين والرمل"، مما يعني أنهم يغطون أجزاء من البند (4) أيضاً.</p>
+                            <p><strong>الإجراء:</strong> الاتصال الفوري بـ "Glow Events" (عبر الواتساب المتاح في الإعلان) وطلب "باقة ترفيهية شاملة" تغطي جميع العناصر الخمسة في البند (6) والاستفسار عن إضافة "ركن الحرف" من البند (4).</p>
+                        </div>
+                    </div>
+
+                    <div class="vendor-card">
+                        <div class="vendor-name">المورد 2: "لمات - فرقة التميز" (Lamaat)</div>
+                        <p style="margin: 1rem 0;"><strong>البيانات:</strong> يقدمون خدمة "مهرجة اطفال الرياض فرقة التميز".</p>
+                        <p style="margin: 1rem 0;"><strong>التكلفة:</strong> السعر واضح ومحدد: يتراوح من 392.00 ريال للساعة الواحدة إلى 1,512.00 ريال لأربع ساعات.</p>
+                        <p style="margin: 1rem 0;"><strong>تفاصيل الباقة:</strong> الباقة تتضمن (مهرجة، مسابقات، رسم وجوه، شخصية كرتونية). هذا يغطي البنود (أ، ب، ج، هـ).</p>
+                        <p style="margin: 1rem 0;"><strong>الإجراء:</strong> الاتصال بـ "لمات" (+966567363371) والسؤال عما إذا كان بإمكانهم إضافة "Stilt Walker" (مشاة على العصي) إلى الباقة مقابل تكلفة إضافية.</p>
+                    </div>
+                </div>
+
+                <h4 style="color: var(--accent); margin: 1.5rem 0 0.5rem;">الموردون المجزأون (خطة بديلة):</h4>
+                <p>للشخصيات الكرتونية فقط: "Rainbow KSA" أو "مهرجه لولو" (0532039176) ، بأسعار تبدأ من 100 ريال (للعرض) ولكنها قد تكون للشخصية الواحدة أو للساعة.</p>
+
+                <div class="success-box">
+                    <h4 style="color: var(--success); margin-bottom: 0.5rem;">التوصية النهائية للقسم 5</h4>
+                    <p><strong>الأولوية الأولى:</strong> الاتصال بـ "Glow Events" كخيار تجميعي شامل.</p>
+                    <p><strong>الأولوية الثانية:</strong> الاتصال بـ "لمات" وحجز باقة 4 ساعات (1,512 ريال) وطلب إضافة "Stilt Walker".</p>
+                    <p><strong>الميزانية التقديرية (لباقة ترفيهية شاملة):</strong> 3,000 - 4,500 ريال.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6: EXACT TEXT -->
+        <div class="section-toggle" id="section6">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>القسم 6: تنفيذ ديكورات البالونات (البند 7)</h2>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="section-content">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">تحليل المتطلبات</h3>
+                <p>هذه مهمة مزدوجة وليست مجرد شراء بالونات: أ. طباعة مخصصة (Custom Printing) لشعار الشركة على البالونات. ب. تنسيق وديكور (Decoration) للبالونات المطبوعة وتوزيعها في جميع مناطق النشاط (على الأرجح كأقواس، أعمدة، أو باقات أرضية).</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 1rem;">ملفات الموردين في الرياض</h3>
+                
+                <div class="vendor-grid">
+                    <div class="vendor-card">
+                        <div class="vendor-name">1. الموردون المتخصصون (للديكورات الكبيرة):</div>
+                        <p style="margin: 1rem 0;"><strong>"Balloonco السعودية" (بالونكو):</strong></p>
+                        <p style="margin: 1rem 0;"><strong>البيانات:</strong> متخصصون في ديكورات البالونات للفعاليات الكبرى.</p>
+                        <p style="margin: 1rem 0;"><strong>سياسة التسعير:</strong> سياستهم واضحة وتدل على الاحترافية: "يُرجى التواصل عبر رقم الجوال لتنسيق زيارة فني الديكورات إلى موقعك وتقديم عرض سعر". هذا هو الخيار المفضل للفعاليات الكبرى.</p>
+                        <p style="margin: 1rem 0;"><strong>الإجراء:</strong> الاتصال (+966-54-2121888) لطلب زيارة وتقديم عرض سعر للديكور + الطباعة.</p>
+                        <p style="margin: 1rem 0;"><strong>"Party Centre" (بارتي سنتر):</strong> مورد رئيسي آخر لـ "زينات البالونات".</p>
+                    </div>
+
+                    <div class="vendor-card">
+                        <div class="vendor-name">2. الموردون المحليون (للاتصال السريع والطباعة):</div>
+                        <p style="margin: 1rem 0;">يوفر البحث قائمة "ذهبية" من المحلات المحلية الموثوقة في الرياض. يمكن لشركة الحفلات (العميل) الاتصال بهذه القائمة (الجدول 2) وطرح سؤالين محددين:</p>
+                        <ol style="margin: 0.5rem 0; padding-right: 2rem;">
+                            <li>"هل تقدمون خدمة الطباعة المخصصة (الشعار) على البالونات؟"</li>
+                            <li>"كم تكلفة تنسيق 5 أعمدة/أقواس بالونات في الموقع؟"</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div style="background: var(--card-bg); border-radius: 15px; padding: 1.5rem; margin: 1.5rem 0; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">
+                        <i class="fas fa-table"></i> جدول (2): قائمة موردي البالونات الرئيسيين في الرياض (للاتصال السريع)
+                    </h3>
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr style="background: rgba(0, 242, 254, 0.1);">
+                                    <th style="padding: 1rem; text-align: right; border-bottom: 1px solid var(--glass-border);">اسم المحل</th>
+                                    <th style="padding: 1rem; text-align: right; border-bottom: 1px solid var(--glass-border);">رقم الهاتف</th>
+                                    <th style="padding: 1rem; text-align: right; border-bottom: 1px solid var(--glass-border);">إجراء</th>
+                                </tr>
+                            </thead>
+                            <tbody id="balloonSuppliers"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 1rem;">التكلفة التقديرية</h3>
+                <p>الطباعة المخصصة والتنسيق في الموقع (أقواس، أعمدة) لفعالية بهذا الحجم ستكلف ما بين 1,500 و 3,000 ريال.</p>
+
+                <div class="success-box">
+                    <h4 style="color: var(--success); margin-bottom: 0.5rem;">التوصية النهائية للقسم 6</h4>
+                    <p>استخدام الجدول (2) للاتصال بالمحلات المحلية (مثل "بالونيرز") للاستفسار عن الطباعة، والاتصال بـ "Balloonco" لتقدير تكلفة التنسيق والديكور الشامل.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 7: EXACT TEXT -->
+        <div class="section-toggle" id="section7">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>القسم 7: توفير فريق الإشراف (البند 8)</h2>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="section-content">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">تحليل المتطلبات</h3>
+                <p>طلب 11 "مشرفاً" (Supervisors)، بمعدل مشرف لكل نشاط.</p>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 1rem;">التحليل اللوجستي (إعادة تعريف "المشرف")</h3>
+                <p>هذا البند هو الأكثر عرضة لسوء الفهم الإداري والمالي. العميل النهائي لا يحتاج إلى 11 "مديراً" (Managers)، بل يحتاج إلى "منشطين" (Facilitators) للأنشطة.</p>
+
+                <h4 style="color: var(--accent); margin: 1rem 0 0.5rem;">الخطوة 1: تحليل "المنشطين المدمجين" (Embedded Operators)</h4>
+                <p>لنراجع الأنشطة المذكورة سابقاً ونحدد أي منها يأتي مع مشغل خاص به كجزء من سعر الإيجار:</p>
+                <ul style="margin: 1rem 0; padding-right: 2rem;">
+                    <li>ركن VR/PS (البند 2): سيتطلب 1-2 فنيين لتشغيل الأجهزة وحل المشاكل التقنية. (مدمج ضمن تكلفة المورد مثل "عالم المغامرة").</li>
+                    <li>كشك التصوير (البند 5): الإعلانات تؤكد وجود "فريق تشغيل متكامل طوال الحدث". (1-2 شخص، مدمج).</li>
+                    <li>فرقة الترفيه (البند 6): ستجلب المهرج، والمشاة، وقاص القصص، ومقدم العرض. (3-4 أشخاص، مدمج).</li>
+                    <li>ركن الحرف/السلايم (البند 4): باقات "KidzStations" ستتضمن "منشطين" لإدارة الفوضى ومساعدة الأطفال. (1-2 شخص، مدمج).</li>
+                    <li>ركن البوفيه (البند 3): سيتطلب مشرفاً واحداً لإعادة الملء. (يجب تخصيصه).</li>
+                </ul>
+
+                <h4 style="color: var(--accent); margin: 1.5rem 0 0.5rem;">الخطوة 2: تحديد الحاجة الحقيقية</h4>
+                <p>تم تغطية ما لا يقل عن 6 إلى 9 من "المشرفين" الـ 11 تلقائياً ضمن تكاليف البنود الأخرى. الحاجة الحقيقية هي لـ 3 مشرفين عامين (Floor Managers) فقط:</p>
+                <ul style="margin: 1rem 0; padding-right: 2rem;">
+                    <li>مشرف (1): مسؤول عن إدارة التدفق عند المدخل وتوجيه الأطفال.</li>
+                    <li>مشرف (2): مسؤول عن تنسيق البوفيه ومتابعة الموردين.</li>
+                    <li>مشرف (3): مشرف أرضية عام (Float) لحل المشكلات ومساعدة المنشطين الآخرين.</li>
+                </ul>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 1rem;">تحديد مصادر "المشرفين العامين" (Staffing Agencies)</h3>
+                <p>يجب توظيف هؤلاء المشرفين الثلاثة من وكالة توظيف متخصصة في الفعاليات (Event Staffing)، وليس من شركة تنظيم حفلات (منافسة).</p>
+                
+                <div class="vendor-grid">
+                    <div class="vendor-card">
+                        <div class="vendor-name">المورد 1: "THA Staffing KSA"</div>
+                        <p style="margin: 1rem 0;"><strong>البيانات:</strong> متخصصون بشكل واضح في "Event Staffing in Riyadh" و "Temporary Event Staff".</p>
+                        <p style="margin: 1rem 0;"><strong>الإجراء:</strong> الاتصال بهم (عبر موقعهم) وطلب "عرض سعر لـ 3 مشرفي فعالية (Event Staff) لمدة 6 ساعات".</p>
+                    </div>
+
+                    <div class="vendor-card">
+                        <div class="vendor-name">المورد 2: "Shine Event Staffing"</div>
+                        <p style="margin: 1rem 0;"><strong>البيانات:</strong> مورد متخصص آخر بمكاتب في الرياض والعلا.</p>
+                        <p style="margin: 1rem 0;"><strong>الإجراء:</strong> الاتصال (hello@letsshineksa.com) لطلب عرض سعر منافس.</p>
+                    </div>
+
+                    <div class="vendor-card">
+                        <div class="vendor-name">المورد 3: "Saudi Green Events"</div>
+                        <p style="margin: 1rem 0;"><strong>البيانات:</strong> يقدم "On-Demand Temporary Event Staffing Riyadh".</p>
+                    </div>
+                </div>
+
+                <h3 style="color: var(--primary); margin: 1.5rem 0 1rem;">التكلفة التقديرية</h3>
+                <p>التكلفة التقديرية للموظف المؤقت (Event Staff) في الرياض هي حوالي 100 - 150 ريال/ساعة.</p>
+                <div class="cost-box">التقدير (للخطة الموصى بها): 3 مشرفين * 6 ساعات (5 ساعات للفعالية + ساعة تحضير/إغلاق) * 120 ريال/ساعة = 2,160 ريال.</div>
+                <div class="danger-box">تحذير (تكلفة الخطة المطلوبة حرفياً): 11 مشرفاً * 6 ساعات * 120 ريال/ساعة = 7,920 ريال.</div>
+
+                <div class="success-box">
+                    <h4 style="color: var(--success); margin-bottom: 0.5rem;">التوصية النهائية للقسم 7</h4>
+                    <p>يجب على شركة الحفلات (العميل) تثقيف عميلها النهائي حول نموذج "المنشط المدمج" لتوفير التكاليف.</p>
+                    <p>يجب أن تتضمن الميزانية 3 مشرفين فقط من وكالة مثل "THA Staffing".</p>
+                    <p>عند طلب عروض الأسعار للأنشطة (VR، فوتو بوث، ترفيه)، يجب تأكيد "عدد المشغلين/المنشطين المضمنين في السعر" كتابياً.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conclusion: EXACT TEXT -->
+        <section id="conclusion" class="glass-card">
+            <h2 style="color: var(--primary); margin-bottom: 1.5rem;">
+                <i class="fas fa-flag-checkered"></i> الخاتمة: توصيات نهائية ومسار التنفيذ
+            </h2>
+            
+            <p style="margin-bottom: 1.5rem; line-height: 1.8;">
+                لضمان نجاح هذه الفعالية المعقدة في الرياض، يجب على شركة تنظيم الحفلات (العميل) التحرك من دور "المنفذ" إلى دور "مدير المشروع الاستراتيجي". التحديات الرئيسية التي تم تحديدها والحلول الموصى بها هي:
+            </p>
+            
+            <div style="display: grid; gap: 1rem;">
+                <div class="danger-box">
+                    <h4 style="color: var(--danger); margin-bottom: 0.5rem;">تحدي التجزئة (البنود 4 و 6):</h4>
+                    <p>الطلبات (مثل المهرج، القصص، الرمل، المشاة على العصي) مجزأة للغاية.</p>
+                    <p><strong>الحل:</strong> <span class="text-highlight">"التجميع" (Bundling)</span> هو الاستراتيجية الأساسية. يجب البحث بقوة عن مورد واحد شامل مثل "Glow Events" الذي يقدم باقة تشمل الترفيه (البند 6) وأركان الحرف (البند 4)، مما يوفر التكلفة ويبسط اللوجستيات.</p>
+                </div>
+                
+                <div class="warning-box">
+                    <h4 style="color: var(--warning); margin-bottom: 0.5rem;">تحدي كشك التصوير (البند 5):</h4>
+                    <p>شرط "الطباعة الفورية للجميع" (لـ 80+ ضيف) خلال 5 ساعات هو شرط غير واقعي لوجستياً.</p>
+                    <p><strong>الحل:</strong> <span class="text-highlight">"إدارة التوقعات" (Expectation Management)</span>. يجب إبلاغ العميل النهائي بأن الحد الأقصى للطباعة هو ~200 نسخة، واقتراح نموذج "جلسات رقمية غير محدودة + طباعة محددة".</p>
+                </div>
+                
+                <div class="success-box">
+                    <h4 style="color: var(--success); margin-bottom: 0.5rem;">تحدي الإشراف (البند 8):</h4>
+                    <p>طلب 11 مشرفاً من وكالة توظيف منفصلة هو فهم خاطئ مكلف.</p>
+                    <p><strong>الحل:</strong> تطبيق نموذج <span class="text-highlight">"المنشط المدمج" (Embedded Operator)</span>. الأنشطة التفاعلية (VR, Photo Booth, Arts, Clowns) تأتي مع مشغليها. الحاجة الحقيقية هي لـ 3 مشرفي أرضية فقط من وكالة متخصصة مثل "THA Staffing".</p>
+                </div>
+            </div>
+            
+            <p style="margin-top: 1.5rem; line-height: 1.8; background: rgba(0, 242, 254, 0.1); padding: 1rem; border-radius: 10px;">
+                باتباع هذا الدليل التحليلي للمصادر، يمكن للشركة تقديم عرض سعر تنافسي ودقيق، مدعوم بموردين محليين تم التحقق منهم، وخطة لوجستية واقعية وقابلة للتنفيذ في مدينة الرياض.
+            </p>
+        </section>
+
+        <!-- Works Cited - EXACT TEXT -->
+        <div class="glass-card" style="margin-top: 2rem;">
+            <h3 style="color: var(--text-secondary); margin-bottom: 1rem;">
+                <i class="fas fa-link"></i> Works Cited
+            </h3>
+            <div style="display: grid; gap: 0.5rem; font-size: 0.9rem; max-height: 400px; overflow-y: auto;">
+                <div style="color: var(--text-secondary);">1. تاجير بلايستيشن في الرياض - شركة عالم المغامرة للترفية, https://shop.adventurksa.com/%D8%A8%D9%84%D8%A7%D9%8A%D8%B3%D8%AA%D9%8A%D8%B4%D9%86/c1433177234</div>
+                <div style="color: var(--text-secondary);">2. بكج البلايستيشن مع نظارة VR - PlayStation Package with VR - ايجار ..., https://shop.adventurksa.com/ar/ZYgWxBo</div>
+                <div style="color: var(--text-secondary);">3. رقم المنتج 0205 - قريت جوي تأجير نطيطات – Great Joy, https://great-joy.net/products/%D8%B1%D9%82%D9%85-%D8%A7%D9%84%D9%85%D9%86%D8%AA%D8%AC-0205</div>
+                <div style="color: var(--text-secondary);">4. تأجيرلعبة الواقع الافتراضي VR الترفيهية 193 | استأجر - منصة تأجير المنتجات, https://estajer.com/products/virtual-reality-vr-gaming-rental-193_ref_68b791a5894d253bcfef4234</div>
+                <div style="color: var(--text-secondary);">5. VR - joyrent, https://joy-rent.com/vr/p1108613941</div>
+                <div style="color: var(--text-secondary);">6. simulator - محاكاة القيادة - متجر يوسفندي, https://yousefndi.com/ar/category/ydXbpb</div>
+                <div style="color: var(--text-secondary);">7. Firstaiment – Entertainment again, https://firstaiment.com/</div>
+                <div style="color: var(--text-secondary);">8. Sandbox VR Riyadh | Immersive Virtual Reality Experiences, https://sandboxvr.com/riyadh</div>
+                <div style="color: var(--text-secondary);">9. ألعاب الواقع الافتراضي (VR) - PlanetX Entertainment Center, https://www.planetx.sa/ar/vr-games/</div>
+                <div style="color: var(--text-secondary);">10. أهلا بكم في محطات طفولة للترفيه وتنظيم الحفلات - KidzStations, https://kidzstations.com/ar/</div>
+                <div style="color: var(--text-secondary);">11. استأجر سخانات اكل بوفيه تبدأ من 25 ريال فقط - إعاره, https://e3arah.sa/products/65ee3548-5fb0-4c45-810c-d65f906d02ac?</div>
+                <div style="color: var(--text-secondary);">12. بوفيه عشاء 70 أشخاص الى 80 - WEJ BAKERY, https://wej-event.com/%D8%A8%D9%88%D9%81%D9%8A%D9%87-%D8%B9%D8%B4%D8%A7%D8%A1-70-%D8%A3%D8%B4%D8%AE%D8%A7%D8%B5-%D8%A7%D9%84%D9%89-80/p54830879</div>
+                <div style="color: var(--text-secondary);">13. كيف تختار المكان المثالي لـ تنظيم حفلات اطفال بالرياض - Eventastic, https://eventasticsa.com/%D8%AA%D9%86%D8%B8%D9%8A%D9%85-%D8%AD%D9%81%D9%84%D8%A7%D8%AA-%D8%A7%D8%B7%D9%81%D8%A7%D9%84-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/</div>
+                <div style="color: var(--text-secondary);">14. شركة كيت كيترينق kit catering الشيف راكان العريفي, https://kitcatering.sa/</div>
+                <div style="color: var(--text-secondary);">15. Birthday Party Catering Riyadh | Baguettering, https://baguettering.sa/birthday-party-catering/</div>
+                <div style="color: var(--text-secondary);">16. بوفيه إفطار عالمى من فندق هوليداي إن القصر ابتداءً من 80 ر.س. فقط! - Cobone, https://www.cobone.com/ar/deals/iftar-suhoor-ramadan-riyadh/1-iftar-buffet-adult-holidayin/195277</div>
+                <div style="color: var(--text-secondary);">17. تاجير طالولات اطفال - اعياد ميلاد - حفلات - مناسبات - شركة عالم المغامرة ..., https://shop.adventurksa.com/ar/category/qGDdpN</div>
+                <div style="color: var(--text-secondary);">18. أركان تعليمية للأطفال | تجهيزات مثالية للحضانات والمدارس - بارتي ستيشن, https://partystation.sa/collections/%D8%A7%D9%84%D8%A3%D8%B1%D9%83%D8%A7%D9%86-%D8%A7%D9%84%D8%AA%D8%B9%D9%84%D9%8A%D9%85%D9%8A%D8%A9</div>
+                <div style="color: var(--text-secondary);">19. فرق ترفيهية | موقع حراج, https://haraj.com.sa/1193453747/%D9%81%D8%B1%D9%82_%D8%AA%D8%B1%D9%81%D9%8A%D9%87%D9%8A%D8%A9/</div>
+                <div style="color: var(--text-secondary);">20. Photo Booth Rental Riyadh KSA, Glamdroid Robotic AI PhotoBooth for Event, https://sa.iboothme.com/</div>
+                <div style="color: var(--text-secondary);">21. Pixel Media: Home, https://pixelmediasa.com/</div>
+                <div style="color: var(--text-secondary);">22. تأجير فوتو بوث جهاز تصوير الفعاليات بالرياض | موقع حراج, https://haraj.com.sa/11169349380/%D8%AA%D8%A3%D8%AC%D9%8A%D8%B1_%D9%81%D9%88%D8%AA%D9%88_%D8%A8%D9%88%D8%AB_%D8%AC%D9%87%D8%A7%D8%B2_%D8%AA%D8%B5%D9%88%D9%8A%D8%B1_%D8%A7%D9%84%D9%81%D8%B9%D8%A7%D9%84%D9%8A%D8%A7%D8%AA_%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/</div>
+                <div style="color: var(--text-secondary);">23. افضل عروض (Booth) جديد و مستعمل في السعودية - موقع حراج, https://haraj.com.sa/search/Booth/</div>
+                <div style="color: var(--text-secondary);">24. World's Tallest Stilt Walker returns To USA - YouTube, https://www.youtube.com/shorts/wSrxyMzZGaI</div>
+                <div style="color: var(--text-secondary);">25. تأجير شخصيات كرتونية لاسعاد الاطفال وادخالهم عالم البهجة2024, https://rainbowksa.com/%D8%AA%D8%A3%D8%AC%D9%8A%D8%B1-%D8%B4%D8%AE%D8%B5%D9%8A%D8%A7%D8%AA-%D9%83%D8%B1%D8%AA%D9%88%D9%86%D9%8A%D8%A9/</div>
+                <div style="color: var(--text-secondary);">26. مهرجة اطفال الرياض فرقة التميز | لمات | LAMAT, https://lamaat.net/product/%D9%85%D9%87%D8%B1%D8%AC%D8%A9-%D8%A7%D8%B7%D9%81%D8%A7%D9%84-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6/</div>
+                <div style="color: var(--text-secondary);">27. مهرجه للأطفال تاجير شخصيات كرتونيه وشعبيه - حراج الخرج, https://haraj-alkharj.com.sa/1175001</div>
+                <div style="color: var(--text-secondary);">28. افضل عروض (تأجير شخصيات كرتونيه) جديد و مستعمل في السعودية | موقع حراج, https://haraj.com.sa/search/%D8%AA%D8%A3%D8%AC%D9%8A%D8%B1%20%D8%B4%D8%AE%D8%B5%D9%8A%D8%A7%D8%AA%20%D9%83%D8%B1%D8%AA%D9%88%D9%86%D9%8A%D9%87/</div>
+                <div style="color: var(--text-secondary);">29. بالونكو السعودية | ديكورات بالونات | بالونات تخرج | بالونات مواليد ..., https://www.balloonco-ksa.com/ar/shop/%D9%85%D9%86%D8%AA%D8%AC%D8%A7%D8%AA%D9%86%D8%A7/%D8%AF%D9%8A%D9%83%D9%88%D8%B1%D8%A7%D8%AA-%D8%A8%D8%A7%D9%84%D9%88%D9%86%D8%A7%D8%AA/</div>
+                <div style="color: var(--text-secondary);">30. أجمل بالونات الزينة المتوفرة في المملكة العربية السعودية - بارتي سنتر, https://partycentre.sa/ar/collections/decorators</div>
+                <div style="color: var(--text-secondary);">31. أفضل 10 محلات بالونات في الرياض لعام 2024 - الرياض سيتي, https://www.alriyadhcity.com/balloons-stores-in-riyadh/</div>
+                <div style="color: var(--text-secondary);">32. Event Staffing In Riyadh - THA Staffing KSA, https://www.tha-staffingksa.com/event-staffing-in-riyadh</div>
+                <div style="color: var(--text-secondary);">33. At Shine, our curated talent pool supports Saudi Arabia's premier events and venues with skilled, reliable, and genuinely passionate staff. Since 2020, we have proudly provided thousands of frontline professionals for experiences ranging from global sports spectacles to city-wide art festivals, world-class concerts, and exclusive VVIP events. - Shine Event Staffing, https://shineeventstaffing.com/staffing/</div>
+                <div style="color: var(--text-secondary);">34. Temporary Event Staff in Riyadh - Saudi Green Events, https://saudigreenevents.com/temporary-event-staffing/</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2 id="modalVendorName" style="color: var(--primary); margin-bottom: 1rem;"></h2>
+            <div style="margin: 1.5rem 0;">
+                <div style="margin-bottom: 1rem;">
+                    <i class="fas fa-envelope" style="color: var(--primary); margin-left: 0.5rem;"></i>
+                    <span id="modalEmail"></span>
+                </div>
+                <div>
+                    <i class="fas fa-phone" style="color: var(--primary); margin-left: 0.5rem;"></i>
+                    <span id="modalPhone"></span>
+                </div>
+            </div>
+            <button class="contact-btn" onclick="copyContactInfo()">
+                <i class="fas fa-copy"></i> نسخ المعلومات
+            </button>
+            <button class="contact-btn" onclick="window.open('https://wa.me/' + document.getElementById('modalPhone').innerText.replace('+', ''))">
+                <i class="fab fa-whatsapp"></i> واتساب
+            </button>
+        </div>
+    </div>
+
+    <!-- Print Button -->
+    <button class="print-btn" onclick="window.print()">
+        <i class="fas fa-print"></i> طباعة التقرير
+    </button>
+
+    <script>
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.getElementById('progressBar').style.width = scrollPercent + '%';
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Toggle Sections
+        function toggleSection(header) {
+            const section = header.parentElement;
+            section.classList.toggle('active');
+        }
+
+        // Balloon Suppliers Data - EXACT LIST
+        const balloonSuppliers = [
+            { name: 'محل بالونيرز', phone: '0562678888' },
+            { name: 'محل وقت البالون', phone: '0554562870' },
+            { name: 'محل شو بارتي', phone: '0566116699' },
+            { name: 'محل فرحة البالون', phone: '0555982530' },
+            { name: 'محل بالون شو', phone: '0507797940' },
+            { name: 'محل مدينة البالون', phone: '0508811055' },
+            { name: 'محل جادة البالون', phone: '0508811055' },
+            { name: 'محل البالونات الطائرة', phone: '0504341047' },
+            { name: 'محل ذي بالون فاكتوري', phone: '0567328220' },
+            { name: 'محل سماء بالون', phone: '0554234463' }
+        ];
+
+        // Populate Balloon Suppliers Table
+        const suppliersTable = document.getElementById('balloonSuppliers');
+        balloonSuppliers.forEach(supplier => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td style="padding: 1rem; border-bottom: 1px solid var(--glass-border);">${supplier.name}</td>
+                <td style="padding: 1rem; border-bottom: 1px solid var(--glass-border);">${supplier.phone}</td>
+                <td style="padding: 1rem; border-bottom: 1px solid var(--glass-border);">
+                    <button class="contact-btn" style="padding: 0.5rem 1rem;" onclick="window.open('tel:${supplier.phone}')">
+                        <i class="fas fa-phone"></i> اتصال
+                    </button>
+                </td>
+            `;
+            suppliersTable.appendChild(row);
+        });
+
+        // Contact Modal
+        let currentContact = {};
+        
+        function showContactModal(vendorName, email, phone) {
+            currentContact = { vendorName, email, phone };
+            document.getElementById('modalVendorName').innerText = vendorName;
+            document.getElementById('modalEmail').innerText = email || 'غير متوفر';
+            document.getElementById('modalPhone').innerText = phone;
+            document.getElementById('contactModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('contactModal').style.display = 'none';
+        }
+
+        function copyContactInfo() {
+            const text = `المورد: ${currentContact.vendorName}\nالبريد: ${currentContact.email || 'غير متوفر'}\nالهاتف: ${currentContact.phone}`;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('تم نسخ معلومات الاتصال!');
+            });
+        }
+
+        // Add contact functionality to vendor cards
+        document.addEventListener('DOMContentLoaded', () => {
+            // Auto-open first section
+            document.querySelector('.section-toggle').classList.add('active');
+        });
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            const modal = document.getElementById('contactModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.glass-card, .vendor-card, .stat-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html> 
